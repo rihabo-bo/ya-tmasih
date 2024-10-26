@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timsah</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8d3d3;
+            position: relative;
+            overflow: hidden;
+        }
+        .move-button {
+            padding: 10px 20px;
+            background-color: #d5006d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+        }
+        .static-button {
+            padding: 10px 20px;
+            background-color: #d5006d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 20px;
+        }
+        #gifContainer {
+            display: none;
+            text-align: center;
+        }
+        .button-container {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">rihab tya zlla tae dnya?🥰</div>
+    <div class="button-container">
+        <button class="move-button">No</button>
+        <button class="static-button">Yes</button>
+    </div>
+    <div id="gifContainer">
+        <img id="gif" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ21yeXUzcGV4ZGE1NHVzOGlzc2c0ZmVqenNzOTZ3dGpoczEwNnZtcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Zys4m3vEX78Dwt9Ua9/giphy.gif" alt="GIF"  style="width: 250px; height: auto;"/>
+        <div class="title">tmasih rahom radyin 3lik🐊</div>
+    </div>
+
+    <script>
+        const moveButton = document.querySelector('.move-button');
+        const staticButton = document.querySelector('.static-button');
+        const gifContainer = document.getElementById('gifContainer');
+
+        function moveButtonPosition() {
+            const buttonWidth = moveButton.offsetWidth;
+            const buttonHeight = moveButton.offsetHeight;
+            const maxX = window.innerWidth - buttonWidth; 
+            const maxY = window.innerHeight - buttonHeight;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            moveButton.style.left = `${x}px`;
+            moveButton.style.top = `${y}px`;
+        }
+
+        moveButton.addEventListener('click', moveButtonPosition);
+        moveButton.addEventListener('mouseover', moveButtonPosition);
+        staticButton.addEventListener('click', function() {
+            moveButton.style.display = 'none';
+            staticButton.style.display = 'none'; 
+            document.querySelector('.title').style.display = 'none';
+            gifContainer.style.display = 'block';
+        });
+
+        moveButtonPosition();
+    </script>
+
+</body>
+</html>
